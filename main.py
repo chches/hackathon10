@@ -3,6 +3,7 @@ from controllers.profesores_controller import Profesores_controller
 from controllers.cursos_controller import Cursos_controller
 from controllers.salon_controller import Salon_controller
 from controllers.periodo_controller import Periodo_controller
+from controllers.directores_controller import Directores_controller
 
 def iniciar_app():
     try:
@@ -11,7 +12,7 @@ def iniciar_app():
             Sistema de Colegio
         ==========================
         ''')
-        menu_principal = ["Profesores", "Alumnos", "Cursos", "Periodo Escolar", "Salones", "Habilitar salones y cursos", "Registro de notas", "Salir"]
+        menu_principal = ["Profesores", "Alumnos", "Cursos", "Periodo Escolar", "Salones", "Habilitar salones y cursos", "Registro de notas", "Directores", "Salir"]
         respuesta = Menu(menu_principal).show()
         if respuesta == 1:
             profesor = Profesores_controller()
@@ -39,6 +40,11 @@ def iniciar_app():
             pass
         elif respuesta == 7:
             pass
+        elif respuesta == 8:
+            directores = Directores_controller()
+            directores.menu()
+            if directores.salir:
+                iniciar_app()
 
         print("\nGracias por utilizar el sistema\n")
     except KeyboardInterrupt:

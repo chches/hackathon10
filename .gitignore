@@ -128,3 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .myenv/
+Scripts_tablas_usuarios_roles.sql
+Scripts_tabla_director.sql

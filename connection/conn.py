@@ -4,7 +4,7 @@ class Conexion:
     def __init__(self, table_name):
         self.table_name = table_name
         self.db = connect(host='127.0.0.1', 
-                    user='postgres', password='*********', database='sictema_colegio')
+                    user='postgres', password='R0s@N3gr@', database='sistema_colegio')
         self.cursor = self.db.cursor()
 
 
