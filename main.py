@@ -1,9 +1,7 @@
 from helpers.menu import Menu
-from controllers.profesores_controller import Profesores_controller
-from controllers.cursos_controller import Cursos_controller
-from controllers.salon_controller import Salon_controller
-from controllers.periodo_controller import Periodo_controller
-from controllers.directores_controller import Directores_controller
+from usuario.alumno import menu_alumno
+from usuario.director import menu_director
+from usuario.profesor import menu_profesor
 
 def iniciar_app():
     try:
@@ -12,39 +10,14 @@ def iniciar_app():
             Sistema de Colegio
         ==========================
         ''')
-        menu_principal = ["Profesores", "Alumnos", "Cursos", "Periodo Escolar", "Salones", "Habilitar salones y cursos", "Registro de notas", "Directores", "Salir"]
+        menu_principal = ["Director", "Profesore", "Alumno", "Salir"]
         respuesta = Menu(menu_principal).show()
         if respuesta == 1:
-            profesor = Profesores_controller()
-            profesor.menu()
-            if profesor.salir:
-                iniciar_app()
+            menu_director()
         elif respuesta == 2:
-            pass
+            menu_profesor()
         elif respuesta == 3:
-            curso = Cursos_controller()
-            curso.menu()
-            if curso.salir:
-                iniciar_app()
-        elif respuesta == 4:
-            periodo = Periodo_controller()
-            periodo.menu()
-            if periodo.salir:
-                iniciar_app()
-        elif respuesta == 5:
-            salon = Salon_controller()
-            salon.menu()
-            if salon.salir:
-                iniciar_app()
-        elif respuesta == 6:
-            pass
-        elif respuesta == 7:
-            pass
-        elif respuesta == 8:
-            directores = Directores_controller()
-            directores.menu()
-            if directores.salir:
-                iniciar_app()
+            menu_alumno()
 
         print("\nGracias por utilizar el sistema\n")
     except KeyboardInterrupt:
